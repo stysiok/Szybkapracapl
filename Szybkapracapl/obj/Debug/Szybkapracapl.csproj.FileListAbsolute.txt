@@ -83,3 +83,4 @@ C:\Users\stysi\documents\visual studio 2015\Projects\Szybkapracapl\Szybkapracapl
 C:\Users\stysi\documents\visual studio 2015\Projects\Szybkapracapl\Szybkapracapl\obj\Debug\Szybkapracapl.Migrations.InitialModel.resources
 C:\Users\stysi\documents\visual studio 2015\Projects\Szybkapracapl\Szybkapracapl\obj\Debug\Szybkapracapl.csproj.GenerateResource.Cache
 C:\Users\stysi\documents\visual studio 2015\Projects\Szybkapracapl\Szybkapracapl\obj\Debug\Szybkapracapl.Migrations.CreateOfferTable.resources
+C:\Users\stysi\documents\visual studio 2015\Projects\Szybkapracapl\Szybkapracapl\obj\Debug\Szybkapracapl.Migrations.OverrideConventionsForOffer.resources

@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201703231741161_CreateOfferTable.Designer.cs">
       <DependentUpon>201703231741161_CreateOfferTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703241024567_OverrideConventionsForOffer.cs" />
+    <Compile Include="Migrations\201703241024567_OverrideConventionsForOffer.Designer.cs">
+      <DependentUpon>201703241024567_OverrideConventionsForOffer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -303,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703231741161_CreateOfferTable.resx">
       <DependentUpon>201703231741161_CreateOfferTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703241024567_OverrideConventionsForOffer.resx">
+      <DependentUpon>201703241024567_OverrideConventionsForOffer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
