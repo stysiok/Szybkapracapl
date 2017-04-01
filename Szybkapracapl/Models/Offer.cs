@@ -18,5 +18,8 @@ namespace Szybkapracapl.Models
 
         [Required]
         public string City { get; set; }
+
+        [Required]
+        public string Description { get; set; }
     }
 }
