@@ -10,6 +10,7 @@ namespace Szybkapracapl.Models
         [Required]
         public ApplicationUser Employer { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public DateTime Date { get; set; }
@@ -17,7 +18,7 @@ namespace Szybkapracapl.Models
         public double Sallary { get; set; }
 
         [Required]
-        public string City { get; set; }
+        public City City { get; set; }
 
         [Required]
         public string Description { get; set; }

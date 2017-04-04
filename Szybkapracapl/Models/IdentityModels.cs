@@ -21,6 +21,8 @@ namespace Szybkapracapl.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Offer> Offers { get; set; }
+
+        public DbSet<City> Cities { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

@@ -36,7 +36,7 @@ namespace Szybkapracapl.Controllers
             {
                 Employer = employer,
                 Name = viewModel.Name,
-                City = viewModel.City,
+                //City = viewModel.City,
                 Date = DateTime.Parse(string.Format("{0} {1}", viewModel.Date, viewModel.Time)),
                 Description = viewModel.Description,
                 Sallary = (double) viewModel.Sallary
