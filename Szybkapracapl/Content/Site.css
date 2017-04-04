@@ -1,8 +1,46 @@
 ﻿body {
+
     padding-top: 50px;
     padding-bottom: 20px;
+    
+    background:url(../tlo.png);
+   
+    width:100%;
+    height:100%;
+}
+.zkonta{
+    padding-bottom:17%;
+}
+.btn-warning{
+    background: black;
+    color: white;
+    background-size: cover;
+    
+    width: 50px;
+	height: 50px;
+
+
+	margin: 40px auto 0;
 }
 
+
+.glowna{
+    padding-top:25%;
+   
+   
+}
+
+.lewyglowna{
+    padding-right:10%;
+    padding-left:10%;
+}
+.prawyglowna{
+    padding-left:10%;
+    padding-right:10%;
+} 
+.autorskie{
+    padding-bottom:18%;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
