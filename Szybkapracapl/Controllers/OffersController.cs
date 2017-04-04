@@ -1,10 +1,6 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using Szybkapracapl.Models;
 using Szybkapracapl.ViewModels;
 
@@ -22,22 +18,27 @@ namespace Szybkapracapl.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            return View();
+            var cities = _context.Cities.ToList();
+
+            var viewModel = new OfferFormViewModel()
+            {
+                Cities = cities,
+            };
+            
+            return View(viewModel);
         }
 
         [Authorize]
         [HttpPost]
         public ActionResult Create(OfferFormViewModel viewModel)
         {
-            var employerId = User.Identity.GetUserId();
-            var employer = _context.Users.Single(u => u.Id == employerId);
 
             var offer = new Offer
             {
-                Employer = employer,
+                EmployerId = User.Identity.GetUserId(),
                 Name = viewModel.Name,
-                //City = viewModel.City,
-                Date = DateTime.Parse(string.Format("{0} {1}", viewModel.Date, viewModel.Time)),
+                CityId = viewModel.City,
+                Date = viewModel.DateTime,
                 Description = viewModel.Description,
                 Sallary = (double) viewModel.Sallary
             };

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using Szybkapracapl.Models;
 
 namespace Szybkapracapl.ViewModels
@@ -16,9 +13,16 @@ namespace Szybkapracapl.ViewModels
 
         public double Sallary { get; set; }
 
-        public string City { get; set; }
+        public int City { get; set; }
+
+        public IEnumerable<City> Cities { get; set; }
         
         public string Description { get; set; }
+
+        public DateTime DateTime
+        {
+            get { return DateTime.Parse(string.Format("{0} {1}", Date, Time)); }
+        }
     }
 
 }

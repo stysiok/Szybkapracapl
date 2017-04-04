@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201704041628249_PopulateCitiesTable.Designer.cs">
       <DependentUpon>201704041628249_PopulateCitiesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704041746529_AddForeignKeyPropToOffer.cs" />
+    <Compile Include="Migrations\201704041746529_AddForeignKeyPropToOffer.Designer.cs">
+      <DependentUpon>201704041746529_AddForeignKeyPropToOffer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\City.cs" />
@@ -342,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704041628249_PopulateCitiesTable.resx">
       <DependentUpon>201704041628249_PopulateCitiesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704041746529_AddForeignKeyPropToOffer.resx">
+      <DependentUpon>201704041746529_AddForeignKeyPropToOffer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

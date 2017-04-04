@@ -7,8 +7,10 @@ namespace Szybkapracapl.Models
     {
         public int Id { get; set; }
 
-        [Required]
         public ApplicationUser Employer { get; set; }
+
+        [Required]
+        public string EmployerId { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -18,6 +20,8 @@ namespace Szybkapracapl.Models
         public double Sallary { get; set; }
 
         [Required]
+        public int CityId { get; set; }
+
         public City City { get; set; }
 
         [Required]
