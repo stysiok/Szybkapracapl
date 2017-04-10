@@ -1,4 +1,7 @@
-﻿body {
+﻿
+
+
+body {
 
     padding-top: 50px;
     padding-bottom: 20px;
@@ -7,6 +10,24 @@
    
     width:100%;
     height:100%;
+}
+
+ 
+    
+}
+.btn-circle {
+position:center;
+  display:block;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  line-height: 9;
+  border: 1px solid darkgrey;
+}
+
+.img
+{
+    width:100%;
 }
 .zkonta{
     padding-bottom:17%;
@@ -25,21 +46,15 @@
 
 
 .glowna{
-    padding-top:25%;
+margin-top:5%;
    
    
 }
 
-.lewyglowna{
-    padding-right:10%;
-    padding-left:10%;
-}
-.prawyglowna{
-    padding-left:10%;
-    padding-right:10%;
-} 
-.autorskie{
-    padding-bottom:18%;
+
+
+.autorskie {
+margin-bottom: 0%;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
