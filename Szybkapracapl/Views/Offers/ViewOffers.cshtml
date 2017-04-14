@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Szybkapracapl.Models.Offer>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>title</h2>
+
+<ul>
+    @foreach (var offer in Model)
+    {
+        <li>@offer.Date, @offer.City.Name</li>
+    }
+</ul>

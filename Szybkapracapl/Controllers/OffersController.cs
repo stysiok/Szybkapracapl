@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
+using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Szybkapracapl.Models;
@@ -14,6 +16,7 @@ namespace Szybkapracapl.Controllers
         {
             _context = new ApplicationDbContext();
         }
+
         // GET: Offers
         [Authorize]
         public ActionResult Create()
@@ -52,6 +55,14 @@ namespace Szybkapracapl.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult ViewOffers()
+        {
+            var offers = _context.Offers.Include(o => o.City).Include(o => o.Employer)
+                .Where(o => o.Date > DateTime.Now); //tu dodac walidacje przez miasto i uzytkownika
+
+            return View(offers);
         }
     }
 }
