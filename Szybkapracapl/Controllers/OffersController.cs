@@ -32,13 +32,18 @@ namespace Szybkapracapl.Controllers
         [HttpPost]
         public ActionResult Create(OfferFormViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Cities = _context.Cities.ToList();
+                return View("Create", viewModel);
+            }
 
             var offer = new Offer
             {
                 EmployerId = User.Identity.GetUserId(),
                 Name = viewModel.Name,
                 CityId = viewModel.City,
-                Date = viewModel.DateTime,
+                Date = viewModel.GetDateTime(),
                 Description = viewModel.Description,
                 Sallary = (double) viewModel.Sallary
             };
