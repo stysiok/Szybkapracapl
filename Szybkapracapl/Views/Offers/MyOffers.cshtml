@@ -1,0 +1,12 @@
+﻿@model System.Linq.IQueryable<Szybkapracapl.Models.Offer>
+
+@{
+    ViewBag.Title = "My offers";
+}
+
+<ul>
+    @foreach (var offer in Model)
+    {
+        <li>@offer.City.Name @offer.Name @offer.Sallary</li>
+    }
+</ul>

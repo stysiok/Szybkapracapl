@@ -59,10 +59,22 @@ namespace Szybkapracapl.Controllers
 
         public ActionResult ViewOffers()
         {
-            var offers = _context.Offers.Include(o => o.City).Include(o => o.Employer)
-                .Where(o => o.Date > DateTime.Now); //tu dodac walidacje przez miasto i uzytkownika
+            var id = User.Identity.GetUserId();
+            var offers = _context.Offers
+                .Include(o => o.City)
+                .Include(o => o.Employer)
+                .Where(o => o.Date > DateTime.Now)
+                .Where(o => o.EmployerId != id); //tu dodac walidacje przez miasto
 
             return View(offers);
+        }
+
+        public ActionResult MyOffers()
+        {
+            var myId = User.Identity.GetUserId();
+            var myOffers = _context.Offers.Include(o => o.City).Where(o => o.EmployerId == myId);
+
+            return View(myOffers);
         }
     }
 }

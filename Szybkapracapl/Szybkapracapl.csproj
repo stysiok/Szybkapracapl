@@ -320,6 +320,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Offers\Create.cshtml" />
     <Content Include="Views\Offers\ViewOffers.cshtml" />
+    <Content Include="Views\Offers\MyOffers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
