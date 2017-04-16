@@ -64,15 +64,44 @@ namespace Szybkapracapl.Controllers
                 .Include(o => o.City)
                 .Include(o => o.Employer)
                 .Where(o => o.Date > DateTime.Now)
-                .Where(o => o.EmployerId != id); //tu dodac walidacje przez miasto
+                .Where(o => o.EmployerId != id)
+                .ToList(); //tu dodac walidacje przez miasto
 
-            return View(offers);
+            var viewModel = new ViewOffersViewModel()
+            {
+                Offers = offers,
+                Cities = _context.Cities.ToList()
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult ViewOffers(ViewOffersViewModel model)
+        {
+            var id = User.Identity.GetUserId();
+            var offers = _context.Offers
+                .Include(o => o.City)
+                .Include(o => o.Employer)
+                .Where(o => o.Date > DateTime.Now)
+                .Where(o => o.EmployerId != id)
+                .Where(o => o.CityId == model.CityId)
+                .ToList(); 
+
+            var viewModel = new ViewOffersViewModel()
+            {
+                Offers = offers,
+                Cities = _context.Cities.ToList()
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult MyOffers()
         {
             var myId = User.Identity.GetUserId();
             var myOffers = _context.Offers.Include(o => o.City).Where(o => o.EmployerId == myId);
+
 
             return View(myOffers);
         }

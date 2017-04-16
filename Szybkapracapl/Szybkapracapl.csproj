@@ -245,6 +245,7 @@
     <Compile Include="ViewModels\FutureDate.cs" />
     <Compile Include="ViewModels\OfferFormViewModel.cs" />
     <Compile Include="ViewModels\ValidTime.cs" />
+    <Compile Include="ViewModels\ViewOffersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
