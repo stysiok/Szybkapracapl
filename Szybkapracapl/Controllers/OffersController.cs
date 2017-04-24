@@ -65,7 +65,7 @@ namespace Szybkapracapl.Controllers
                 .Include(o => o.Employer)
                 .Where(o => o.Date > DateTime.Now)
                 .Where(o => o.EmployerId != id)
-                .ToList(); //tu dodac walidacje przez miasto
+                .ToList(); 
 
             var viewModel = new ViewOffersViewModel()
             {

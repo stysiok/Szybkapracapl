@@ -89,3 +89,4 @@ C:\Users\stysi\documents\visual studio 2015\Projects\Szybkapracapl\Szybkapracapl
 C:\Users\stysi\documents\visual studio 2015\Projects\Szybkapracapl\Szybkapracapl\obj\Debug\Szybkapracapl.Migrations.OverrideNewConventions.resources
 C:\Users\stysi\documents\visual studio 2015\Projects\Szybkapracapl\Szybkapracapl\obj\Debug\Szybkapracapl.Migrations.PopulateCitiesTable.resources
 C:\Users\stysi\documents\visual studio 2015\Projects\Szybkapracapl\Szybkapracapl\obj\Debug\Szybkapracapl.Migrations.AddForeignKeyPropToOffer.resources
+C:\Users\stysi\documents\visual studio 2015\Projects\Szybkapracapl\Szybkapracapl\obj\Debug\Szybkapracapl.Migrations.AddNameAndPhoneToAppUser.resources
