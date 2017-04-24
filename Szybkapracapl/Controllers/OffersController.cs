@@ -60,12 +60,22 @@ namespace Szybkapracapl.Controllers
         public ActionResult ViewOffers()
         {
             var id = User.Identity.GetUserId();
+
+            var works = _context.Works
+                .Where(w => w.EmployeeId == id)
+                .ToList();
+
             var offers = _context.Offers
                 .Include(o => o.City)
                 .Include(o => o.Employer)
                 .Where(o => o.Date > DateTime.Now)
                 .Where(o => o.EmployerId != id)
-                .ToList(); 
+                .ToList();
+
+            foreach (var work in works)
+            {
+                offers.RemoveAll(o => o.Id == work.OfferId);
+            }
 
             var viewModel = new ViewOffersViewModel()
             {
@@ -80,13 +90,23 @@ namespace Szybkapracapl.Controllers
         public ActionResult ViewOffers(ViewOffersViewModel model)
         {
             var id = User.Identity.GetUserId();
+
+            var works = _context.Works
+                .Where(w => w.EmployeeId == id)
+                .ToList();
+
             var offers = _context.Offers
                 .Include(o => o.City)
                 .Include(o => o.Employer)
                 .Where(o => o.Date > DateTime.Now)
                 .Where(o => o.EmployerId != id)
                 .Where(o => o.CityId == model.CityId)
-                .ToList(); 
+                .ToList();
+
+            foreach (var work in works)
+            {
+                offers.RemoveAll(o => o.Id == work.OfferId);
+            }
 
             var viewModel = new ViewOffersViewModel()
             {
@@ -100,10 +120,23 @@ namespace Szybkapracapl.Controllers
         public ActionResult MyOffers()
         {
             var myId = User.Identity.GetUserId();
-            var myOffers = _context.Offers.Include(o => o.City).Where(o => o.EmployerId == myId);
 
+            var myOffers = _context.Offers.Include(o => o.City).Where(o => o.EmployerId == myId).ToList();
 
-            return View(myOffers);
+            var myWorks = _context.Works
+                .Include(w => w.Employee)
+                .Include(w => w.Employer)
+                .Include(w => w.Offer.City)
+                .Where(w => w.EmployeeId == myId).ToList();
+
+            
+
+            var myOffersViewModel = new MyOffersViewModel()
+            {
+                MyOffers = myOffers,
+                MyWorks = myWorks
+            };
+            return View(myOffersViewModel);
         }
     }
 }

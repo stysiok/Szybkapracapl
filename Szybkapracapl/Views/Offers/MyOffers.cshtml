@@ -1,12 +1,21 @@
-﻿@model System.Linq.IQueryable<Szybkapracapl.Models.Offer>
+﻿@model Szybkapracapl.ViewModels.MyOffersViewModel
 
 @{
     ViewBag.Title = "My offers";
 }
 
+<h2>Moje oferty</h2>
 <ul>
-    @foreach (var offer in Model)
+    @foreach (var offer in Model.MyOffers)
     {
         <li>@offer.City.Name @offer.Name @offer.Date</li>
+    }
+</ul>
+
+<h2>Oferty w ktorych pracuje</h2>
+<ul>
+    @foreach (var work in Model.MyWorks)
+    {
+        <li>Ja @work.Employee.Name pracuję dla @work.Employer.Name w mieście @work.Offer.City.Name za stawkę @work.Offer.Sallary robiąc @work.Offer.Name</li>
     }
 </ul>
