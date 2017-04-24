@@ -79,6 +79,14 @@ namespace Szybkapracapl.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
+
+        [Required]
+        [RegularExpression(@"^[0-9]{9}$", ErrorMessage = "error Message ")]
+        public int Phone { get; set; }
     }
 
     public class ResetPasswordViewModel
