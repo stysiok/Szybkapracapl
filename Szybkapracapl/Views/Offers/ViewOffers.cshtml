@@ -8,17 +8,53 @@
 {
     <div class="form-group">
         @Html.LabelFor(m => m.CityId)
-        @Html.DropDownListFor(m => m.CityId, new SelectList(Model.Cities, "Id", "Name"), new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.CityId, new SelectList(Model.Cities, "Id", "Name"), new {@class = "form-control"})
         @Html.ValidationMessageFor(m => m.CityId)
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary" name="action:ViewOffers">Search</button>
+}
 
-
-
-    <ul>
+    <div>
         @foreach (var offer in Model.Offers)
         {
-            <li>@offer.Date, @offer.City.Name, @offer.Employer.Name, @offer.Name</li>
+            Html.BeginForm("Save", "Offers");
+            {
+                Model.OfferId = offer.Id;
+                <div>
+                    <p>Nazwa: @offer.Name</p>
+                    <p>Miasto: @offer.City.Name</p>
+                    <p>Pracodawca: @offer.Employer.Name</p>
+                    <p>Data: @offer.Date</p>
+                    <p>Płaca: @offer.Sallary</p>
+                    <p>Opis: @offer.Description</p>
+                    
+                    
+                    @Html.HiddenFor(m => m.OfferId)
+
+                    <button type="submit" class="btn btn-primary" name="action:Save">@offer.Name</button>
+                </div>
+
+            }
+
+
+            @*@Html.ActionLink(offer.Name, "ViewOffers", "Offers", new { id = offer.Id }, new { @class = "btn btn-primary btn-block" })*@
+            
         }
-    </ul>
-}
+    </div>
+
+@*@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#modelBtn").click(function(e) {
+                $.post("/Offers/ViewOffers", $(e.target).attr("dupa"))
+                    .done(function() {
+                        alert("poszło");
+                    })
+                    .fail(function() {
+                        alert("gówno");
+                    });
+            });
+        });
+    </script>    
+}*@

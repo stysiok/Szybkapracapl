@@ -3,6 +3,7 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using Szybkapracapl.Attributes;
 using Szybkapracapl.Models;
 using Szybkapracapl.ViewModels;
 
@@ -87,6 +88,27 @@ namespace Szybkapracapl.Controllers
         }
 
         [HttpPost]
+        [MultipleButton(Name ="action", Argument = "Save")]
+        public ActionResult Save(ViewOffersViewModel model)
+        {
+            var employeeId = User.Identity.GetUserId();
+            var offer = _context.Offers.First(m => m.Id == model.OfferId);
+
+            var work = new Work()
+            {
+                EmployeeId = employeeId,
+                EmployerId = offer.EmployerId,
+                OfferId = offer.Id
+            };
+
+            _context.Works.Add(work);
+            _context.SaveChanges();
+
+            return RedirectToAction("MyOffers", "Offers");
+        }
+
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument = "ViewOffers")]
         public ActionResult ViewOffers(ViewOffersViewModel model)
         {
             var id = User.Identity.GetUserId();

@@ -15,5 +15,7 @@ namespace Szybkapracapl.ViewModels
         public int CityId  { get; set; }
 
         public List<City> Cities { get; set; }
+
+        public int OfferId { get; set; }
     }
 }
