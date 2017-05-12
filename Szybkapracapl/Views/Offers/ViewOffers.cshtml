@@ -3,58 +3,45 @@
 @{
     ViewBag.Title = "title";
 }
-
 @using (Html.BeginForm("ViewOffers", "Offers"))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.CityId)
-        @Html.DropDownListFor(m => m.CityId, new SelectList(Model.Cities, "Id", "Name"), new {@class = "form-control"})
+        @Html.DropDownListFor(m => m.CityId, new SelectList(Model.Cities, "Id", "Name"), new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.CityId)
     </div>
     <button type="submit" class="btn btn-primary" name="action:ViewOffers">Search</button>
 }
 
-    <div>
-        @foreach (var offer in Model.Offers)
+<div id="form-wrapper">
+    @using(Html.BeginForm("Save", "Offers")){
+        foreach (var offer in Model.Offers)
         {
-            Html.BeginForm("Save", "Offers");
-            {
-                Model.OfferId = offer.Id;
-                <div>
-                    <p>Nazwa: @offer.Name</p>
-                    <p>Miasto: @offer.City.Name</p>
-                    <p>Pracodawca: @offer.Employer.Name</p>
-                    <p>Data: @offer.Date</p>
-                    <p>Płaca: @offer.Sallary</p>
-                    <p>Opis: @offer.Description</p>
-                    
-                    
-                    @Html.HiddenFor(m => m.OfferId)
-
-                    <button type="submit" class="btn btn-primary" name="action:Save">@offer.Name</button>
-                </div>
-
-            }
 
 
-            @*@Html.ActionLink(offer.Name, "ViewOffers", "Offers", new { id = offer.Id }, new { @class = "btn btn-primary btn-block" })*@
-            
+            <div class="form-group">
+                <p>Nazwa: @offer.Name</p>
+                <p>Miasto: @offer.City.Name</p>
+                <p>Pracodawca: @offer.Employer.Name</p>
+                <p>Data: @offer.Date</p>
+                <p>Płaca: @offer.Sallary</p>
+                <p>Opis: @offer.Description</p>
+
+
+                <input type="radio" style="display: none" name="OfferId" value="@offer.Id"/>
+
+                <button type="submit" class="save btn btn-primary" name="action:Save">@offer.Name (@offer.Id)</button>
+            </div>
+
+
         }
-    </div>
+    }
+</div>
 
-@*@section scripts
-{
+@section scripts{
     <script>
-        $(document).ready(function() {
-            $("#modelBtn").click(function(e) {
-                $.post("/Offers/ViewOffers", $(e.target).attr("dupa"))
-                    .done(function() {
-                        alert("poszło");
-                    })
-                    .fail(function() {
-                        alert("gówno");
-                    });
-            });
+        $('#form-wrapper').on('click', 'button.save',function(e) {
+            $(e.target).prev('input').attr('checked', 'checked');
         });
-    </script>    
-}*@
+    </script>
+}

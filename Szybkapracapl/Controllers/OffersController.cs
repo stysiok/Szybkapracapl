@@ -107,6 +107,24 @@ namespace Szybkapracapl.Controllers
             return RedirectToAction("MyOffers", "Offers");
         }
 
+        //atrubuthttppost
+        //multiplebutto
+        /* 
+         puvlic aciotnsresuklt ( viwe offfer model){
+        employid
+        offer
+        _context.offers.firstordefault(o => o.id == model.oferid);
+        _context base work where ( w => w.offer = model.offerid).where( empluer id== empo ).first ( employerid = offer.employerid
+
+            foreach(){
+            _cintex.works.remove(item);
+
+            }
+
+
+            }
+             */
+
         [HttpPost]
         [MultipleButton(Name = "action", Argument = "ViewOffers")]
         public ActionResult ViewOffers(ViewOffersViewModel model)
